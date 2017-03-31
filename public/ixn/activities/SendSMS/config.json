@@ -1,0 +1,61 @@
+{
+    "workflowApiVersion": "1.0",
+    "metaData": {
+        "version": "2.0",
+        "icon": "images/send_sms.png",
+        "iconSmall": "images/send_sms.png"
+    },
+    "type": "REST",
+    "lang": {
+        "en-US": {
+            "name": "发送短信",
+            "description": "custom activity for sending sms"
+        }
+    },
+    "arguments": {
+        "execute": {       
+            "inArguments":[
+                { "firstName":"{{Contact.Attribute.Joey_Custom_DE.FirstName}}"},
+                { "lastName":"{{Contact.Attribute.Joey_Custom_DE.LastName}}"},
+                { "emailAddress": "{{Contact.Default.Email}}"}                          
+            ],
+            "outArguments": [
+                { "caseID":"number" }
+            ],          
+            "url": "https://send-sms-joey.herokuapp.com/ixn/activities/SendSMS/",
+            "verb": "POST",
+            "body": "",
+            "header": "",
+            "format": "json",
+            "useJwt": false,
+            "timeout": 10000
+        }
+    },
+    "configurationArguments": {
+        "applicationExtensionKey": "Sendsms__c",
+        "defaults": { "priority": "4"},             
+        "save": {
+            "url": "https://send-sms-joey.herokuapp.com/ixn/activities/SendSMS/",
+            "body": "",
+            "verb": "POST",
+            "useJwt": false
+        },
+        "publish": {
+            "url": "https://send-sms-joey.herokuapp.com/ixn/activities/SendSMS/",
+            "verb": "POST",
+            "body": "",
+            "useJwt": false
+        },
+        "validate": {
+            "url": "https://send-sms-joey.herokuapp.com/ixn/activities/SendSMS/",
+            "verb": "POST",
+            "body": "",
+            "useJwt": false            
+        }
+    },
+    "edit": {
+        "url": "https://send-sms-joey.herokuapp.com/ixn/activities/SendSMS/",
+        "height": 400,
+        "width": 500
+    }
+}
