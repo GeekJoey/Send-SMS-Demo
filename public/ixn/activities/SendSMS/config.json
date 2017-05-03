@@ -33,7 +33,7 @@
     },
     "configurationArguments": {
         "applicationExtensionKey": "Send_SMS_cus_activity",
-        //"defaults": { "priority": "4"},             
+        "defaults": { "priority": "7"},             
         "save": {
             "url": "https://send-sms-joey.herokuapp.com/ixn/activities/SendSMS/save/",
             "body": "",
