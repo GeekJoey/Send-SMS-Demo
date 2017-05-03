@@ -19,10 +19,10 @@ var app = express();
 
 
 var APIKeys = {
-    appId           : 'c82f95c5-28ec-4d14-aef7-cbf9889815d3',
-    clientId        : 'a30pxv9men08w8q7xxnrvv5q',
-    clientSecret    : 'ywJWBsQdoaIULNbS8ulbDjNP',
-    appSignature    : 'eyfjiuq2zjdvv1njre32tw1fhgavds0ldusj05apawnflqcsk4gme5uhafka3pfmcodbsp3ex5bcckl03oditc4uf45ype2yvcl440c54zasgxe0whqvgzkquf3cit1vqfpj0boco4itdkruyl0wqkmxofhck5nxnp4omm3wfntwhhogorypccq3spzrpzya0i5fj1hrpvpvfkpwykj2fsygluu1x1tkzxyiwowagrc3ge3q0zjccoyozn5w4ha',
+    appId           : 'd57368e1-057b-4e40-968a-cf938da6359a',
+    clientId        : 'nn9l1yuv27kixfsl80rw2y6f',
+    clientSecret    : 'w7L23mMGtHB4Ov3PPUgRP5c2',
+    appSignature    : 'vadld4pjehrsm4onzsrze2y2qdawjwjeq2udjzom3oygnii5fph44ksmfta3hfg45goy13btx1ma4kxwilo0guxtfdmuct0yoq0sfnbkbrmhmxhpty1dclizuvpj0ydmaptauxu1mzqud1410cla11d3yod1tu5vk01pwkh41narlbr0wvgnjhtf4td2rnixn5tadaf1jmuqklig5sioogmloaalvp1mmnuuj3tnhbfuq3tvn5lkixkeqad15dv',
     authUrl         : 'https://auth.exacttargetapis.com/v1/requestToken?legacy=1'
 };
 
@@ -44,9 +44,11 @@ function tokenFromJWT( req, res, next ) {
     next();
 }
 
-// Use the cookie-based session  middleware
-app.use(express.cookieParser());
+// // Use the cookie-based session  middleware
+// app.use(express.cookieParser());
 
+// // TODO: MaxAge for cookie based on token exp?
+// app.use(express.cookieSession({secret: "DeskAPI-CookieSecret0980q8w0r8we09r8"}));
 
 // Configure Express
 app.set('port', process.env.PORT || 3000);
@@ -70,21 +72,32 @@ app.get('/', routes.index );
 app.post('/login', tokenFromJWT, routes.login );
 app.post('/logout', routes.logout );
 
+// Custom Activity Routes for interacting with Desk.com API
+app.post('/ixn/activities/Send-sms/save/', activityCreate.save );
+app.post('/ixn/activities/Send-sms/validate/', activityCreate.validate );
+app.post('/ixn/activities/Send-sms/publish/', activityCreate.publish );
+app.post('/ixn/activities/Send-sms/execute/', activityCreate.execute );
+
+// app.post('/ixn/activities/update-case/save/', activityUpdate.save );
+// app.post('/ixn/activities/update-case/validate/', activityUpdate.validate );
+// app.post('/ixn/activities/update-case/publish/', activityUpdate.publish );
+// app.post('/ixn/activities/update-case/execute/', activityUpdate.execute );
+
 app.get('/clearList', function( req, res ) {
-    // // The client makes this request to get the data
-    // activityUtils.logExecuteData = [];
-    // res.send( 200 );
+    // The client makes this request to get the data
+    activityUtils.logExecuteData = [];
+    res.send( 200 );
 });
 
 
 // Used to populate events which have reached the activity in the interaction we created
 app.get('/getActivityData', function( req, res ) {
-    // // The client makes this request to get the data
-    // if( !activityUtils.logExecuteData.length ) {
-    //     res.send( 200, {data: null} );
-    // } else {
-    //     res.send( 200, {data: activityUtils.logExecuteData} );
-    // }
+    // The client makes this request to get the data
+    if( !activityUtils.logExecuteData.length ) {
+        res.send( 200, {data: null} );
+    } else {
+        res.send( 200, {data: activityUtils.logExecuteData} );
+    }
 });
 
 app.get( '/version', function( req, res ) {
