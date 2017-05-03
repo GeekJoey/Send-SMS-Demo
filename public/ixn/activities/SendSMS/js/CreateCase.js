@@ -41,7 +41,7 @@ define( function( require ) {
             connection.trigger('updateButton', { button: 'next', enabled: false });
         }
 
-		$('#selectPriority').find('option[value='+ priority +']').attr('selected', 'selected');		
+		$('#selectTemplate').find('option[value='+ priority +']').attr('selected', 'selected');		
 		gotoStep(step);
         
     });
@@ -97,7 +97,7 @@ define( function( require ) {
                 break;
             case 2:
                 $('#step2').show();
-                $('#showPriority').html(getPriority());
+                $('#showTemplate').html(getPriority());
                 connection.trigger('updateButton', { button: 'back', visible: true });
                 connection.trigger('updateButton', { button: 'next', text: 'done', visible: true });
                 break;
@@ -108,7 +108,7 @@ define( function( require ) {
     };
 
     function getPriority() {
-        return $('#selectPriority').find('option:selected').attr('value').trim();
+        return $('#selectTemplate').find('option:selected').attr('value').trim();
     };
 
     function save() {
