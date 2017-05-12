@@ -19,9 +19,7 @@
                 { "lastName":"{{Contact.Attribute.Joey_Custom_DE.LastName}}"},
                 { "emailAddress": "{{Contact.Default.Email}}"}                          
             ],
-            "outArguments": [
-                { "caseID":"number" }
-            ],          
+            "outArguments": [],          
             "url": "https://cms-jlrcmssandbox.cs6.force.com/services/apexrest/CMS_Rest_Test/",
             "verb": "POST",
             "body": "",
