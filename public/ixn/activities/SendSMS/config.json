@@ -22,7 +22,7 @@
             "outArguments": [
                 { "caseID":"number" }
             ],          
-            "url": "https://send-sms-joey.herokuapp.com/ixn/activities/SendSMS/execute/",
+            "url": "https://cms-jlrcmssandbox.cs6.force.com/services/apexrest/CMS_Rest_Test/",
             "verb": "POST",
             "body": "",
             "header": "",
