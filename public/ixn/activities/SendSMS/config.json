@@ -2,8 +2,8 @@
     "workflowApiVersion": "1.0",
     "metaData": {
         "version": "2.0",
-        "icon": "images/send_sms.png",
-        "iconSmall": "images/send_sms.png"
+        "icon": "images/wechat1.jpg",
+        "iconSmall": "images/wechat1.jpg"
     },
     "type": "REST",
     "lang": {
@@ -30,7 +30,7 @@
         }
     },
     "configurationArguments": {
-        "applicationExtensionKey": "Send_SMS_cus_activity",
+        "applicationExtensionKey": "WeChatDemo",
         "defaults": { "priority": "7"},             
         "save": {
             "url": "https://send-sms-joey.herokuapp.com/ixn/activities/SendSMS/save/",
