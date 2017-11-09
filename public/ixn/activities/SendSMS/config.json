@@ -30,7 +30,7 @@
         }
     },
     "configurationArguments": {
-        "applicationExtensionKey": "WeChatDemo",
+        "applicationExtensionKey": "SendWeChat",
         "defaults": { "priority": "7"},             
         "save": {
             "url": "https://send-sms-joey.herokuapp.com/ixn/activities/SendSMS/save/",
