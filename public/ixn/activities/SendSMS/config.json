@@ -2,8 +2,8 @@
     "workflowApiVersion": "1.0",
     "metaData": {
         "version": "2.0",
-        "icon": "images/wechat1.jpg",
-        "iconSmall": "images/wechat1.jpg"
+        "icon": "images/wechat2.png",
+        "iconSmall": "images/wechat2.png"
     },
     "type": "REST",
     "lang": {
