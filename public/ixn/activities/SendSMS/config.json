@@ -8,8 +8,8 @@
     "type": "REST",
     "lang": {
         "en-US": {
-            "name": "Send SMS/MMS",
-            "description": "Send SMS/MMS."
+            "name": "Send WeChat",
+            "description": "Send WeChat."
         }
     },
     "arguments": {
